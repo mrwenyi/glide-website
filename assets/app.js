@@ -41,9 +41,11 @@ if (data) {
     panel.querySelector('[data-feature-note]').textContent = feature.note;
     const image = tab.querySelector('svg').cloneNode(true);
     panel.querySelector('.feature-icon').replaceChildren(image);
-    const effect = panel.querySelector('[data-demo-effect]');
-    effect.dataset.demoEffect = feature.id;
-    effect.replaceChildren(image.cloneNode(true));
+    const preview = panel.querySelector('[data-feature-image]');
+    preview.src = feature.src;
+    preview.width = feature.width;
+    preview.height = feature.height;
+    preview.alt = feature.alt;
   };
   tabs.forEach(tab => {
     tab.addEventListener('click', () => select(tab));
